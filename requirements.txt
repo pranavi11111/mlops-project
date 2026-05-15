@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+scikit-learn
+pandas
+numpy
+mlflow
+evidently
+great-expectations
+dvc
+feast
+prometheus-fastapi-instrumentator
+joblib
+python-multipart
