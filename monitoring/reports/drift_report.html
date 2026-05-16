@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MLOps Drift Report</title>
+    <style>
+        body { font-family: Arial; background: #0f172a; color: white; padding: 30px; }
+        h1 { color: #60a5fa; }
+        h2 { color: #94a3b8; }
+        .card { background: #1e293b; border-radius: 10px; padding: 20px; margin: 15px 0; }
+        .badge-red { background: #ef4444; padding: 3px 10px; border-radius: 5px; font-size: 12px; }
+        .badge-green { background: #22c55e; padding: 3px 10px; border-radius: 5px; font-size: 12px; }
+        table { width: 100%; border-collapse: collapse; }
+        th { background: #334155; padding: 10px; text-align: left; }
+        td { padding: 10px; border-bottom: 1px solid #334155; }
+    </style>
+</head>
+<body>
+    <h1>MLOps Data Drift Report</h1>
+    <h2>Drift Monitor</h2>
+    <div class="card">
+        <h2>Drift Summary</h2>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Reference Mean</th>
+                <th>Current Mean</th>
+                <th>Drift Score</th>
+                <th>Status</th>
+            </tr>
+<tr><td>age</td><td>40.04</td><td>41.36</td><td>0.033</td><td><span class="badge-green">OK</span></td></tr><tr><td>income</td><td>69112.22</td><td>97229.68</td><td>0.4068</td><td><span class="badge-red">DRIFTED</span></td></tr><tr><td>education</td><td>2.59</td><td>3.12</td><td>0.2037</td><td><span class="badge-red">DRIFTED</span></td></tr><tr><td>experience</td><td>19.78</td><td>21.12</td><td>0.0674</td><td><span class="badge-green">OK</span></td></tr>
+        </table>
+    </div>
+    <div class="card">
+        <h2>Conclusion</h2>
+        <p>Data drift detected in production data compared to training data.
+        Model retraining recommended if drift score exceeds 0.1 threshold.</p>
+    </div>
+</body>
+</html>

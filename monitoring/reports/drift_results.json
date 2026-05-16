@@ -1,0 +1,26 @@
+{
+  "age": {
+    "reference_mean": 40.04,
+    "current_mean": 41.36,
+    "drift_score": 0.033,
+    "drifted": false
+  },
+  "income": {
+    "reference_mean": 69112.22,
+    "current_mean": 97229.68,
+    "drift_score": 0.4068,
+    "drifted": true
+  },
+  "education": {
+    "reference_mean": 2.59,
+    "current_mean": 3.12,
+    "drift_score": 0.2037,
+    "drifted": true
+  },
+  "experience": {
+    "reference_mean": 19.78,
+    "current_mean": 21.12,
+    "drift_score": 0.0674,
+    "drifted": false
+  }
+}
