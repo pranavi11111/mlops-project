@@ -1,0 +1,126 @@
+[
+  {
+    "eventType": "COMPLETE",
+    "eventTime": "2026-05-16T12:27:07.512965Z",
+    "run": {
+      "runId": "a0e030af-743b-4ae2-96d8-6a0a8b4fabc3"
+    },
+    "job": {
+      "namespace": "mlops-diabetes",
+      "name": "load_dataset"
+    },
+    "inputs": [
+      {
+        "namespace": "mlops-diabetes",
+        "name": "sklearn.breast_cancer"
+      }
+    ],
+    "outputs": [
+      {
+        "namespace": "mlops-diabetes",
+        "name": "data/dataset.csv"
+      }
+    ],
+    "producer": "mlops-project"
+  },
+  {
+    "eventType": "COMPLETE",
+    "eventTime": "2026-05-16T12:27:07.513027Z",
+    "run": {
+      "runId": "c426eb25-264b-43c8-89a5-62ca9891f6d1"
+    },
+    "job": {
+      "namespace": "mlops-diabetes",
+      "name": "validate_data"
+    },
+    "inputs": [
+      {
+        "namespace": "mlops-diabetes",
+        "name": "data/dataset.csv"
+      }
+    ],
+    "outputs": [
+      {
+        "namespace": "mlops-diabetes",
+        "name": "data/validated_dataset.csv"
+      }
+    ],
+    "producer": "mlops-project"
+  },
+  {
+    "eventType": "COMPLETE",
+    "eventTime": "2026-05-16T12:27:07.513040Z",
+    "run": {
+      "runId": "a8f99a92-0518-49aa-876e-cd2930bb0afc"
+    },
+    "job": {
+      "namespace": "mlops-diabetes",
+      "name": "train_model"
+    },
+    "inputs": [
+      {
+        "namespace": "mlops-diabetes",
+        "name": "data/validated_dataset.csv"
+      }
+    ],
+    "outputs": [
+      {
+        "namespace": "mlops-diabetes",
+        "name": "model/model.pkl"
+      }
+    ],
+    "producer": "mlops-project"
+  },
+  {
+    "eventType": "COMPLETE",
+    "eventTime": "2026-05-16T12:27:07.513049Z",
+    "run": {
+      "runId": "b0166a62-9873-4606-9bbe-38d6caa0e5ef"
+    },
+    "job": {
+      "namespace": "mlops-diabetes",
+      "name": "evaluate_model"
+    },
+    "inputs": [
+      {
+        "namespace": "mlops-diabetes",
+        "name": "model/model.pkl"
+      },
+      {
+        "namespace": "mlops-diabetes",
+        "name": "data/validated_dataset.csv"
+      }
+    ],
+    "outputs": [
+      {
+        "namespace": "mlops-diabetes",
+        "name": "reports/metrics.json"
+      }
+    ],
+    "producer": "mlops-project"
+  },
+  {
+    "eventType": "COMPLETE",
+    "eventTime": "2026-05-16T12:27:07.513054Z",
+    "run": {
+      "runId": "0e324495-3e93-429e-8cdf-3a2e33268962"
+    },
+    "job": {
+      "namespace": "mlops-diabetes",
+      "name": "serve_predictions"
+    },
+    "inputs": [
+      {
+        "namespace": "mlops-diabetes",
+        "name": "model/model.pkl"
+      }
+    ],
+    "outputs": [
+      {
+        "namespace": "mlops-diabetes",
+        "name": "api/predictions"
+      }
+    ],
+    "producer": "mlops-project"
+  }
+]
