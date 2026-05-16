@@ -1,0 +1,23 @@
+artifact_path: file:C:/Users/PRANAVI/mlops-project/model/mlruns/1/models/m-7a27c8805fbe4b6090d4d0dd579a00fe/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.13.1
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+    skops_trusted_types: null
+mlflow_version: 3.12.0
+model_id: m-7a27c8805fbe4b6090d4d0dd579a00fe
+model_size_bytes: 35707543
+model_uuid: m-7a27c8805fbe4b6090d4d0dd579a00fe
+prompts: null
+run_id: 76017d3ca38440fb906573bbe705638a
+utc_time_created: '2026-05-16 10:53:09.061495'

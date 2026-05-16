@@ -3,70 +3,57 @@ import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.datasets import load_diabetes
 import mlflow
 import mlflow.sklearn
 import joblib
 import os
 from datetime import datetime
 
-# Create directories
 os.makedirs("data", exist_ok=True)
 os.makedirs("model", exist_ok=True)
 
-print("🚀 Starting MLOps Training Pipeline...")
+print("🚀 Starting Diabetes MLOps Training Pipeline...")
 
-# ====================== DATA GENERATION ======================
-np.random.seed(42)
-n = 5000  # Increased dataset size
-
-data = pd.DataFrame({
-    "age": np.random.randint(18, 80, n),
-    "income": np.random.randint(15000, 150000, n),
-    "education": np.random.randint(1, 6, n),      # 1=High School to 5=PhD
-    "experience": np.random.randint(0, 40, n),
-    "survived": np.random.randint(0, 2, n)
-})
-
+# ====================== LOAD DIABETES DATASET ======================
+from sklearn.datasets import load_breast_cancer
+raw = load_breast_cancer()
+data = pd.DataFrame(raw.data, columns=raw.feature_names)
+data["target"] = raw.target
 data.to_csv("data/dataset.csv", index=False)
-print(f"✅ Dataset created: {data.shape[0]} rows")
+print(f"✅ Diabetes Dataset loaded: {data.shape[0]} rows, {data.shape[1]} columns")
 
 # ====================== MLFLOW SETUP ======================
-mlflow.set_experiment("mlops-titanic-survival")
+mlflow.set_experiment("mlops-diabetes-prediction")
 
 with mlflow.start_run(run_name=f"run_{datetime.now().strftime('%Y%m%d_%H%M')}") as run:
-    
-    # Log parameters
+
     mlflow.log_param("model_type", "RandomForestClassifier")
     mlflow.log_param("n_estimators", 200)
     mlflow.log_param("random_state", 42)
     mlflow.log_param("test_size", 0.2)
-    
-    # Split data
-    X = data.drop("survived", axis=1)
-    y = data["survived"]
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    mlflow.log_param("dataset", "sklearn_breast_cancer")
 
-    # Train model
+    X = data.drop("target", axis=1)
+    y = data["target"]
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=42)
+
     model = RandomForestClassifier(n_estimators=200, random_state=42)
     model.fit(X_train, y_train)
 
-    # Predict & Evaluate
     y_pred = model.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
     precision = precision_score(y_test, y_pred)
     recall = recall_score(y_test, y_pred)
     f1 = f1_score(y_test, y_pred)
 
-    # Log metrics
     mlflow.log_metric("accuracy", accuracy)
     mlflow.log_metric("precision", precision)
     mlflow.log_metric("recall", recall)
     mlflow.log_metric("f1_score", f1)
 
-    # Save model locally
     joblib.dump(model, "model/model.pkl")
-    
-    # Log model to MLflow
     mlflow.sklearn.log_model(model, "random_forest_model")
 
     print("\n✅ Model Training Completed!")
