@@ -83,6 +83,7 @@ Task: Binary classification — Benign vs Malignant
 - 100% pass rate
 
 ## 📁 Project Structure
+```
 mlops-project/
 ├── app/                 FastAPI application
 ├── model/               Training pipeline
@@ -98,7 +99,7 @@ mlops-project/
 ├── docker-compose.yml   Docker services
 ├── Dockerfile           Container definition
 └── prometheus.yml       Prometheus config
-
+```
 ## 🚀 How to Run
 
 ### Train model
