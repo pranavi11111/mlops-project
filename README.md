@@ -18,12 +18,11 @@
 
 ## 📊 Model Performance
 
-| Metric | Score |
-|--------|-------|
-| Accuracy | 96.49% |
-| Precision | 95.89% |
-| Recall | 98.59% |
-| F1 Score | 97.22% |
+Accuracy	73.38%
+Precision	62.50%
+Recall	63.64%
+F1 Score	63.06%
+Dataset: Pima Indians Diabetes — 768 patients, 8 features
 
 - **Dataset:** Diabetes Prediction Dataset — 569 samples, 30 features
 - **Model:** Random Forest Classifier with 200 estimators
