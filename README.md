@@ -13,7 +13,7 @@
 
 | Component | URL |
 |-----------|-----|
-| 🖥️ React Frontend | (https://clear-diab-path.lovable.app) |
+| 🖥️ React Frontend | https://clear-diab-path.lovable.app |
 | 🔗 GitHub Repo | https://github.com/pranavi11111/mlops-project |
 
 ## 📊 Model Performance
@@ -66,7 +66,7 @@ React Frontend → User
 
 ### 7. 🚀 Deployment — FastAPI + ReactJS
 - FastAPI at /predict endpoint
-- React frontend: https://sweet-diab-insight.lovable.app
+- React frontend: https://clear-diab-path.lovable.app
 - Real-time predictions with confidence scores
 
 ### 8. 📉 Monitoring — Evidently AI
