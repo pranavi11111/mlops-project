@@ -13,7 +13,7 @@
 
 | Component | URL |
 |-----------|-----|
-| 🖥️ React Frontend | https://mlops-vision.lovable.app |
+| 🖥️ React Frontend | https://sweet-diab-insight.lovable.app |
 | 🔗 GitHub Repo | https://github.com/pranavi11111/mlops-project |
 
 ## 📊 Model Performance
