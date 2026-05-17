@@ -137,16 +137,19 @@ feast feature-views list
 ## 📸 Evidence & Screenshots
 
 ### ✅ ArgoCD — Healthy & Synced
-![ArgoCD](screenshots/ARGO%20DASHBOARD%20MLOPS.png)
+![ArgoCD](ARGO%20DASHBOARD%20MLOPS.png)
 
 ### ✅ FastAPI — /predict Working
-![FastAPI](screenshots/mlops%20api%20op.png)
+![FastAPI](mlops%20api%20op.png)
 
 ### ✅ Promptfoo — 100% Pass Rate
-![Promptfoo](screenshots/mlops_op1.png)
+![Promptfoo](mlops%20op1.png)
 
 ### ✅ Feast — Feature Views Listed
-![Feast](screenshots/mlops_op3.png)
+![Feast](mlops%20op3.png)
+
+### ✅ Data Lineage Report
+![Lineage](mlops%20op2.png)
 
 ## 👩‍💻 Author
 
