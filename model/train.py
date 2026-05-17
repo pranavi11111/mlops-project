@@ -3,7 +3,6 @@ import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
-from sklearn.datasets import load_diabetes
 import mlflow
 import mlflow.sklearn
 import joblib
@@ -15,15 +14,14 @@ os.makedirs("model", exist_ok=True)
 
 print("🚀 Starting Diabetes MLOps Training Pipeline...")
 
-# ====================== LOAD DIABETES DATASET ======================
-from sklearn.datasets import load_breast_cancer
-raw = load_breast_cancer()
-data = pd.DataFrame(raw.data, columns=raw.feature_names)
-data["target"] = raw.target
+# Pima Indians Diabetes Dataset
+url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.data.csv"
+cols = ["pregnancies","glucose","blood_pressure","skin_thickness","insulin","bmi","diabetes_pedigree","age","outcome"]
+
+data = pd.read_csv(url, names=cols)
 data.to_csv("data/dataset.csv", index=False)
 print(f"✅ Diabetes Dataset loaded: {data.shape[0]} rows, {data.shape[1]} columns")
 
-# ====================== MLFLOW SETUP ======================
 mlflow.set_experiment("mlops-diabetes-prediction")
 
 with mlflow.start_run(run_name=f"run_{datetime.now().strftime('%Y%m%d_%H%M')}") as run:
@@ -31,13 +29,11 @@ with mlflow.start_run(run_name=f"run_{datetime.now().strftime('%Y%m%d_%H%M')}") 
     mlflow.log_param("model_type", "RandomForestClassifier")
     mlflow.log_param("n_estimators", 200)
     mlflow.log_param("random_state", 42)
-    mlflow.log_param("test_size", 0.2)
-    mlflow.log_param("dataset", "sklearn_breast_cancer")
+    mlflow.log_param("dataset", "pima_indians_diabetes")
 
-    X = data.drop("target", axis=1)
-    y = data["target"]
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=42)
+    X = data.drop("outcome", axis=1)
+    y = data["outcome"]
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     model = RandomForestClassifier(n_estimators=200, random_state=42)
     model.fit(X_train, y_train)
