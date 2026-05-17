@@ -67,7 +67,7 @@ React Frontend → User
 
 ### 7. 🚀 Deployment — FastAPI + ReactJS
 - FastAPI at /predict endpoint
-- React frontend: https://mlops-vision.lovable.app
+- React frontend: https://sweet-diab-insight.lovable.app
 - Real-time predictions with confidence scores
 
 ### 8. 📉 Monitoring — Evidently AI
