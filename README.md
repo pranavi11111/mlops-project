@@ -134,28 +134,19 @@ npx promptfoo eval
 cd feature_store
 feast apply
 feast feature-views list
-## 📸 Screenshots
+## 📸 Evidence & Screenshots
 
-### ArgoCD — Continuous Deployment
-![ArgoCD](screenshots/ARGO_CD_DASHBOARD.png)
+### ✅ ArgoCD — Healthy & Synced
+![ArgoCD](screenshots/ARGO%20DASHBOARD%20MLOPS.png)
 
-### ArgoCD — MLOps App
-![ArgoCD App](screenshots/ARGO_MLOPS_OP.png)
+### ✅ FastAPI — /predict Working
+![FastAPI](screenshots/mlops%20api%20op.png)
 
-### FastAPI — Diabetes Prediction API
-![FastAPI](screenshots/mlops_api_op.png)
-
-### API Prediction Response
-![API Response](screenshots/op_mlops.png)
-
-### OpenLineage — Data Lineage Report
-![Lineage](screenshots/mlops_op2.png)
-
-### Feast — Feature Store
-![Feast](screenshots/mlops_op3.png)
-
-### Promptfoo — Test Results
+### ✅ Promptfoo — 100% Pass Rate
 ![Promptfoo](screenshots/mlops_op1.png)
+
+### ✅ Feast — Feature Views Listed
+![Feast](screenshots/mlops_op3.png)
 
 ## 👩‍💻 Author
 
