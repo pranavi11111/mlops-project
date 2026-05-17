@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XAI Explanation Report</title>
+    <style>
+        body { font-family: Arial; background: #0f172a;
+               color: white; padding: 30px; }
+        h1 { color: #60a5fa; }
+        .card { background: #1e293b; border-radius: 10px;
+                padding: 20px; margin: 15px 0; }
+        .diabetic { border-left: 5px solid #ef4444; }
+        .healthy { border-left: 5px solid #22c55e; }
+        .badge-red { background: #ef4444; padding: 5px 15px;
+                     border-radius: 5px; font-weight: bold; }
+        .badge-green { background: #22c55e; padding: 5px 15px;
+                       border-radius: 5px; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; }
+        th { background: #334155; padding: 12px; text-align: left; }
+        td { padding: 12px; border-bottom: 1px solid #334155; }
+        .high { color: #ef4444; font-weight: bold; }
+        .low { color: #22c55e; font-weight: bold; }
+        .neutral { color: #facc15; }
+        img { width: 100%; border-radius: 10px; margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <h1>Explainable AI - Patient Diagnosis</h1>
+    <div class="card diabetic">
+        <h2>Result</h2>
+        <p>Diagnosis:
+           <span class="badge-red">
+           DIABETIC
+           </span>
+        </p>
+        <p>Confidence: <b>90.0%</b></p>
+    </div>
+    <div class="card">
+        <h2>Feature Impact Analysis</h2>
+        <table>
+            <tr>
+                <th>Feature</th><th>Value</th>
+                <th>SHAP Impact</th><th>Risk Level</th>
+            </tr>
+            <tr>
+                <td>BloodPressure</td><td>72.0</td>
+                <td>-0.158</td><td><span class="low">PROTECTIVE</span></td>
+            </tr>
+            <tr>
+                <td>SkinThickness</td><td>35.0</td>
+                <td>+0.158</td><td><span class="high">HIGH RISK</span></td>
+            </tr>
+            <tr>
+                <td>Age</td><td>50.0</td>
+                <td>+0.024</td><td><span class="high">HIGH RISK</span></td>
+            </tr>
+            <tr>
+                <td>DiabetesPedigreeFunction</td><td>0.627</td>
+                <td>-0.024</td><td><span class="low">PROTECTIVE</span></td>
+            </tr>
+            <tr>
+                <td>BMI</td><td>33.6</td>
+                <td>+0.017</td><td><span class="high">HIGH RISK</span></td>
+            </tr>
+            <tr>
+                <td>Insulin</td><td>0.0</td>
+                <td>-0.017</td><td><span class="low">PROTECTIVE</span></td>
+            </tr>
+            <tr>
+                <td>Glucose</td><td>148.0</td>
+                <td>+0.001</td><td><span class="neutral">NEUTRAL</span></td>
+            </tr>
+            <tr>
+                <td>Pregnancies</td><td>6.0</td>
+                <td>-0.001</td><td><span class="neutral">NEUTRAL</span></td>
+            </tr>
+        </table>
+        <img src="shap_explanation.png" alt="SHAP Chart"/>
+    </div>
+    <div class="card">
+        <h2>What is SHAP?</h2>
+        <p>SHAP values show exactly how much each feature
+        contributed to the prediction. Positive values
+        increase diabetes risk, negative values decrease it.
+        </p>
+    </div>
+</body>
+</html>
