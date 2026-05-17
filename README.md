@@ -134,6 +134,19 @@ npx promptfoo eval
 cd feature_store
 feast apply
 feast feature-views list
+## 📸 Evidence & Screenshots
+
+### ✅ ArgoCD — Healthy & Synced
+![ArgoCD](screenshots/ARGO%20DASHBOARD%20MLOPS.png)
+
+### ✅ FastAPI — /predict Working
+![FastAPI](screenshots/mlops%20api%20op.png)
+
+### ✅ Promptfoo — 100% Pass Rate
+![Promptfoo](screenshots/mlops_op1.png)
+
+### ✅ Feast — Feature Views Listed
+![Feast](screenshots/mlops_op3.png)
 
 ## 👩‍💻 Author
 
