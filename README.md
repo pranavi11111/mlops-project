@@ -150,6 +150,13 @@ feast feature-views list
 
 ### ✅ Data Lineage Report
 ![Lineage](mlops%20op2.png)
+# Project Demo Videos
+
+## 1. Complete Project Walkthrough
+https://drive.google.com/file/d/13KUKhrsgDm3tvT0Ieyw5PC_DmkFOSwwK/view?usp=drive_link
+
+## 2. MLOps Demonstration
+https://drive.google.com/file/d/1d9dkz60D-w43jOy0BKbPsnu4P9-jhHj2/view?usp=drive_link
 
 ## 👩‍💻 Author
 
